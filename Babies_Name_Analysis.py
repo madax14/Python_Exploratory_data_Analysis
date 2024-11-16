@@ -50,5 +50,12 @@ df.loc[nullValues, "Region"] = "Midwest"
 df.duplicated()
 df.duplicated().value_counts()
 
+# Separating the Year that has the max number os Births
+df.groupby(["Year"])["Births"].max()
 
+# Grouping by Year, to filter the top names of each year.
+# Get the index of the max births for each year
+idx = df.groupby("Year")["Births"].idxmax()
+# Filter rows where Births match the max for that year
+df.loc[idx, ["Year", "Name", "Births"]].reset_index(drop=True
 
