@@ -57,5 +57,6 @@ df.groupby(["Year"])["Births"].max()
 # Get the index of the max births for each year
 idx = df.groupby("Year")["Births"].idxmax()
 # Filter rows where Births match the max for that year
-df.loc[idx, ["Year", "Name", "Births"]].reset_index(drop=True
+topNames = df.loc[idx, ["Year", "Name", "Births"]].reset_index(drop=True)
+topNames
 
